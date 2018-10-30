@@ -7,11 +7,14 @@ SOURCES += \
     MapTileRenderableInstance.cpp \
     MapTileRenderGroupDescriptor.cpp \
     Window.cpp \
-    PropertyMapper.cpp
+    PropertyMapper.cpp \
+    MapLoader.cpp \
+    MapSelector.cpp \
+    Map.cpp
 
 DISTFILES += \
-    tile.frag \
-    tile.vert
+    resources/shaders/tile.frag \
+    resources/shaders/tile.vert
 
 HEADERS += \
     Buffer.h \
@@ -25,4 +28,10 @@ HEADERS += \
     IRenderGroup.h \
     RenderGroup.h \
     Window.h \
-    PropertyMapper.h
+    PropertyMapper.h \
+    MapLoader.h \
+    MapSelector.h \
+    Map.h \
+    IMapTile.h
+
+LIBS += -ltiled

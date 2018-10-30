@@ -5,6 +5,7 @@
 
 #include "MapTileRenderGroupDescriptor.h"
 #include "RenderGroup.h"
+#include "MapSelector.h"
 
 class Window : public QOpenGLWindow
 {
@@ -16,6 +17,7 @@ class Window : public QOpenGLWindow
 		void paintGL() override;
 
 	private:
+		MapSelector m_mapSelector;
 		MapTileRenderGroupDescriptor m_mapTileRenderGroupDescriptor;
 		RenderGroup<MapTileRenderableInstance> m_mapTileRenderGroup;
 };

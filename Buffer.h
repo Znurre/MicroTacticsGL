@@ -18,13 +18,15 @@ class Buffer
 		template<class TAttribute>
 		static int transformAttributes(int offset, QList<VertexAttributeDescriptor> &result, TAttribute &attribute)
 		{
-			result << VertexAttributeDescriptor(0
+			const int stride = offset + attribute.size();
+
+			result << VertexAttributeDescriptor(stride
 				, offset
 				, attribute.size()
 				, attribute.name()
 				);
 
-			return attribute.size();
+			return stride;
 		}
 
 		template<class TAttribute, class ...TAttributes>
@@ -38,7 +40,7 @@ class Buffer
 				, attribute.name()
 				);
 
-			return stride + attribute.size();
+			return stride;
 		}
 
 		template<int TLength, int TTupleSize, class ...TAttributes>

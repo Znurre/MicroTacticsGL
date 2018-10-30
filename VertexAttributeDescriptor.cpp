@@ -1,3 +1,5 @@
+#include <GL/gl.h>
+
 #include "VertexAttributeDescriptor.h"
 
 VertexAttributeDescriptor::VertexAttributeDescriptor(int stride, int offset, int size, const char *name)
@@ -10,7 +12,7 @@ VertexAttributeDescriptor::VertexAttributeDescriptor(int stride, int offset, int
 
 int VertexAttributeDescriptor::offset() const
 {
-	return m_offset;
+	return m_offset* sizeof(GLfloat);
 }
 
 int VertexAttributeDescriptor::size() const
@@ -20,7 +22,7 @@ int VertexAttributeDescriptor::size() const
 
 int VertexAttributeDescriptor::stride() const
 {
-	return m_stride;
+	return m_stride* sizeof(GLfloat);
 }
 
 const char *VertexAttributeDescriptor::name() const

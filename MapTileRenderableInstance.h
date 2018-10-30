@@ -3,16 +3,17 @@
 
 #include "IRenderableInstance.h"
 
+class IMapTile;
+
 class MapTileRenderableInstance : public IRenderableInstance
 {
 	public:
-		MapTileRenderableInstance(float x, float y);
+		MapTileRenderableInstance(IMapTile *tile);
 
 		void apply(PropertyMapper &mapper) const override;
 
 	private:
-		float m_x;
-		float m_y;
+		IMapTile *m_tile;
 };
 
 #endif // MAPTILERENDERABLEINSTANCE_H
